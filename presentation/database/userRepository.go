@@ -1,7 +1,7 @@
 package database
 
 import (
-	"github.com/observation-system/observation-auth/domain"
+	"github.com/observation-system/observation-backend/domain"
 )
 
 type UserRepository struct {

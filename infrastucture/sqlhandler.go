@@ -6,7 +6,7 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 
-	"github.com/observation-system/observation-auth/presentation/database"
+	"github.com/observation-system/observation-backend/presentation/database"
 )
 
 type SqlHandler struct {

@@ -1,4 +1,4 @@
-module github.com/observation-system/observation-auth
+module github.com/observation-system/observation-backend
 
 go 1.18
 

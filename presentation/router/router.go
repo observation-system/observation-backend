@@ -4,10 +4,10 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	"github.com/observation-system/observation-auth/log"
-	"github.com/observation-system/observation-auth/infrastucture"
-	"github.com/observation-system/observation-auth/presentation/controller"
-	_ "github.com/observation-system/observation-auth/docs/swagger"
+	"github.com/observation-system/observation-backend/log"
+	"github.com/observation-system/observation-backend/infrastucture"
+	"github.com/observation-system/observation-backend/presentation/controller"
+	_ "github.com/observation-system/observation-backend/docs/swagger"
 	echoSwagger "github.com/swaggo/echo-swagger"
 )
 

@@ -7,11 +7,11 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/dgrijalva/jwt-go"
 	
-	"github.com/observation-system/observation-auth/lib"
-	"github.com/observation-system/observation-auth/domain"
-	"github.com/observation-system/observation-auth/usecase"
-	"github.com/observation-system/observation-auth/presentation/database"
-	"github.com/observation-system/observation-auth/presentation/response"
+	"github.com/observation-system/observation-backend/lib"
+	"github.com/observation-system/observation-backend/domain"
+	"github.com/observation-system/observation-backend/usecase"
+	"github.com/observation-system/observation-backend/presentation/database"
+	"github.com/observation-system/observation-backend/presentation/response"
 )
 
 type UserController struct {
