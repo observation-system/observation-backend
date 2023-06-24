@@ -4,6 +4,23 @@ definitions:
       message:
         type: string
     type: object
+  response.SpotRegister:
+    properties:
+      address:
+        type: string
+      latitude:
+        type: string
+      longitude:
+        type: string
+      message:
+        type: string
+      name:
+        type: string
+      spot_key:
+        type: string
+      url:
+        type: string
+    type: object
   response.UserCheck:
     properties:
       email:
@@ -117,6 +134,50 @@ paths:
       summary: ユーザー登録
       tags:
       - Auth
+  /user/:userKey/spot_register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 地点名
+        in: body
+        name: name
+        required: true
+        schema:
+          type: string
+      - description: URL
+        in: body
+        name: url
+        required: true
+        schema:
+          type: string
+      - description: 住所
+        in: body
+        name: address
+        required: true
+        schema:
+          type: string
+      - description: ユーザーキー
+        in: path
+        name: user_key
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.SpotRegister'
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/response.Error'
+            type: array
+      summary: 地点登録
+      tags:
+      - Spot
   /user/user_check:
     get:
       consumes:
