@@ -19,7 +19,8 @@ func UserMiddleware(next echo.HandlerFunc) echo.HandlerFunc {
 			return fmt.Errorf("Invalid token")
 		}
 
-		if userCheckToken.UserKey == "" || userCheckToken.Email == "" || userCheckToken.Username == "" {
+		userKey := c.Param("userKey")
+		if userCheckToken.UserKey != userKey {
 			return fmt.Errorf("Invalid token")
 		}
 
