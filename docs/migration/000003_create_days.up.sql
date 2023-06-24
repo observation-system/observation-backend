@@ -1,7 +1,7 @@
 CREATE TABLE `days` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `day_key` VARCHAR(12) NOT NULL UNIQUE,
-    `spot_id` INT NOT NULL,
+    `spot_key` VARCHAR(12) NOT NULL UNIQUE,
     `count` VARCHAR(255) NOT NULL,
     `status` VARCHAR(255) NOT NULL,
     `created_at` TIMESTAMP NOT NULL,
@@ -11,5 +11,5 @@ CREATE TABLE `days` (
 
 ALTER TABLE days
 ADD CONSTRAINT fk_days_spots
-FOREIGN KEY (spot_id)
-REFERENCES spots(id);
+FOREIGN KEY (spot_key)
+REFERENCES spots(spot_key);

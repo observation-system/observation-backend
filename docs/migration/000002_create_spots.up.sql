@@ -1,7 +1,7 @@
 CREATE TABLE `spots` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `spot_key` VARCHAR(12) NOT NULL UNIQUE,
-    `user_id` INT NOT NULL,
+    `user_key` VARCHAR(12) NOT NULL UNIQUE,
     `name` VARCHAR(255) NOT NULL,
     `url` VARCHAR(255) NOT NULL,
     `address` VARCHAR(255) NOT NULL,
@@ -17,5 +17,5 @@ CREATE TABLE `spots` (
 
 ALTER TABLE spots
 ADD CONSTRAINT fk_spots_users
-FOREIGN KEY (user_id)
-REFERENCES users(id);
+FOREIGN KEY (user_key)
+REFERENCES users(user_key);
