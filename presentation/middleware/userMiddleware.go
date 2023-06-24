@@ -14,8 +14,12 @@ import (
 func UserMiddleware(next echo.HandlerFunc) echo.HandlerFunc {
     return func(c echo.Context) error {
 		baseToken := c.Request().Header.Get("Authorization")
-		_, err := callAuthApi(baseToken)
+		userCheckToken, err := callAuthApi(baseToken)
 		if err != nil {
+			return fmt.Errorf("Invalid token")
+		}
+
+		if userCheckToken.UserKey == "" || userCheckToken.Email == "" || userCheckToken.Username == "" {
 			return fmt.Errorf("Invalid token")
 		}
 
