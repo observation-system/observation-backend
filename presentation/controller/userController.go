@@ -150,7 +150,7 @@ func (controller *UserController) Check(c echo.Context) (err error) {
 // @Param       user_key path int true "ユーザーキー"
 // @Success     200  {object} response.UserDelete
 // @Failure     500  {array}  response.Error
-// @Router      /user/user_delete/{userKey} [delete]
+// @Router      /user/{userKey}/user_delete [delete]
 func (controller *UserController) Delete(c echo.Context) (err error) {
 	userKey := c.Param("userKey")
 	user := domain.User{ UserKey: userKey }

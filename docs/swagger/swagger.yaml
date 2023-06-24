@@ -178,35 +178,7 @@ paths:
       summary: 地点登録
       tags:
       - Spot
-  /user/user_check:
-    get:
-      consumes:
-      - application/json
-      parameters:
-      - description: Authorization
-        in: header
-        name: Authorization
-        required: true
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/response.UserCheck'
-        "500":
-          description: Internal Server Error
-          schema:
-            items:
-              $ref: '#/definitions/response.Error'
-            type: array
-      security:
-      - ApiKeyAuth: []
-      summary: ユーザー取得
-      tags:
-      - User
-  /user/user_delete/{userKey}:
+  /user/{userKey}/user_delete:
     delete:
       consumes:
       - application/json
@@ -237,6 +209,34 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: ユーザー削除
+      tags:
+      - User
+  /user/user_check:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.UserCheck'
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/response.Error'
+            type: array
+      security:
+      - ApiKeyAuth: []
+      summary: ユーザー取得
       tags:
       - User
 swagger: "2.0"
