@@ -7,6 +7,7 @@ import (
 	"github.com/observation-system/observation-backend/log"
 	"github.com/observation-system/observation-backend/infrastucture"
 	"github.com/observation-system/observation-backend/presentation/controller"
+	customMiddleware "github.com/observation-system/observation-backend/presentation/middleware"
 	_ "github.com/observation-system/observation-backend/docs/swagger"
 	echoSwagger "github.com/swaggo/echo-swagger"
 )
@@ -29,7 +30,7 @@ func Init() *echo.Echo {
 
 	// user
 	u := e.Group("/user")
-	u.Use(middleware.JWT([]byte("secret")))
+	u.Use(customMiddleware.UserMiddleware)
 	u.GET("/user_check", func(c echo.Context) error { return userController.Check(c) }) // user/user_login
 	u.DELETE("/user_delete/:userKey", func(c echo.Context) error { return userController.Delete(c) }) // user/user_delete
 
