@@ -1,7 +1,7 @@
 CREATE TABLE `spots` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `spot_key` VARCHAR(12) NOT NULL UNIQUE,
-    `user_key` VARCHAR(12) NOT NULL UNIQUE,
+    `user_key` VARCHAR(12) NOT NULL,
     `name` VARCHAR(255) NOT NULL,
     `url` VARCHAR(255) NOT NULL,
     `address` VARCHAR(255) NOT NULL,
