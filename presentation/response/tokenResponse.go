@@ -1,6 +1,6 @@
 package response
 
-// auth: user_check
+// 認証サーバーのレスポンス auth: user_check
 type UserCheckToken struct {
 	UserKey string `json:"user_key"`
 	Username string `json:"username"`
