@@ -10,7 +10,7 @@ import (
 	"github.com/observation-system/observation-backend/lib"
 	"github.com/observation-system/observation-backend/domain"
 	"github.com/observation-system/observation-backend/usecase"
-	"github.com/observation-system/observation-backend/api/database"
+	"github.com/observation-system/observation-backend/database"
 	"github.com/observation-system/observation-backend/api/response"
 )
 
