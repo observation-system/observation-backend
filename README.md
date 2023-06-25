@@ -7,6 +7,8 @@ observation-backend
  |   ├──controller
  |   |   ├──context.go
  |   |   └──exampleControlle.go
+ |   ├──middleware
+ |   |   └──exampleMiddleware.go
  |   ├──response
  |   |   ├──errorResponse.go
  |   |   └──exampleResponse.go
