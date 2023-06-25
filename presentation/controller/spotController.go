@@ -57,7 +57,12 @@ func (controller *SpotController) Register(c echo.Context) (err error) {
 	u.UserKey = userKey
 	u.SpotKey = spotKey
 
-	currentTime := time.Now()
+	jst, err := time.LoadLocation("Asia/Tokyo")
+    if err != nil {
+        panic(err)
+    }
+	
+	currentTime := time.Now().In(jst)
 	hour := currentTime.Hour()
 	zeroString := strings.Repeat(",0", hour - 1)
 	u.CountDay = "0" + zeroString
