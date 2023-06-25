@@ -14,3 +14,35 @@ func (repo *SpotRepository) Store(s domain.Spot) (spot domain.Spot, err error) {
 
 	return
 }
+
+func (repo *SpotRepository) FindAll() (spots domain.Spots, err error) {
+	if err = repo.Find(&spots).Error; err != nil {
+		return
+	}
+
+	return
+}
+
+func (repo *SpotRepository) FindBySpotKey(spotKey string) (spots domain.Spots, err error) {
+	if err = repo.Where("spot_key = ?", spotKey).Find(&spots).Error; err != nil {
+		return
+	}
+
+	return
+}
+
+func (repo *SpotRepository) UpdateSpotCount(spotKey string, spotCount string) (spots domain.Spots, err error) {
+	if err = repo.Find(&spots).Where("spot_key = ?", spotKey).Update("count", spotCount).Error; err != nil {
+		return
+	}
+
+	return
+}
+
+func (repo *SpotRepository) UpdateSpotCountDay(spotKey string, spotCountDay string) (spots domain.Spots, err error) {
+	if err = repo.Find(&spots).Where("spot_key = ?", spotKey).Update("count_day", spotCountDay).Error; err != nil {
+		return
+	}
+
+	return
+}
