@@ -22,7 +22,7 @@ observation-backend
  ├──log
  |   ├──api_debug.log
  |   └──log.go
- ├──presentation
+ ├──api
  |   ├──controller
  |   |   ├──context.go
  |   |   └──exampleControlle.go
