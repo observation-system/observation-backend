@@ -59,7 +59,7 @@ func (controller *SpotController) Register(c echo.Context) (err error) {
 
 	jst, err := time.LoadLocation("Asia/Tokyo")
     if err != nil {
-        panic(err)
+        return c.JSON(500, response.NewError(err))
     }
 	
 	currentTime := time.Now().In(jst)
