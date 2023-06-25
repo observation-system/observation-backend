@@ -6,8 +6,8 @@ import (
 
 	"github.com/observation-system/observation-backend/log"
 	"github.com/observation-system/observation-backend/infrastructure"
-	"github.com/observation-system/observation-backend/presentation/controller"
-	customMiddleware "github.com/observation-system/observation-backend/presentation/middleware"
+	"github.com/observation-system/observation-backend/api/controller"
+	customMiddleware "github.com/observation-system/observation-backend/api/middleware"
 	_ "github.com/observation-system/observation-backend/docs/swagger"
 	echoSwagger "github.com/swaggo/echo-swagger"
 )

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/observation-system/observation-backend/presentation/router"
+	"github.com/observation-system/observation-backend/api/router"
 )
 
 func main() {

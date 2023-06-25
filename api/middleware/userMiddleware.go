@@ -8,7 +8,7 @@ import (
 	"net/http"
 	
 	"github.com/labstack/echo/v4"
-	"github.com/observation-system/observation-backend/presentation/response"
+	"github.com/observation-system/observation-backend/api/response"
 )
 
 func UserMiddleware(next echo.HandlerFunc) echo.HandlerFunc {

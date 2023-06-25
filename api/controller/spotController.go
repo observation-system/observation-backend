@@ -14,8 +14,8 @@ import (
 	"github.com/observation-system/observation-backend/lib"
 	"github.com/observation-system/observation-backend/domain"
 	"github.com/observation-system/observation-backend/usecase"
-	"github.com/observation-system/observation-backend/presentation/database"
-	"github.com/observation-system/observation-backend/presentation/response"
+	"github.com/observation-system/observation-backend/api/database"
+	"github.com/observation-system/observation-backend/api/response"
 )
 
 type SpotController struct {
