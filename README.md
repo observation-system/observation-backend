@@ -7,14 +7,22 @@ observation-backend
  |   ├──controller
  |   |   ├──context.go
  |   |   └──exampleControlle.go
- |   ├──database
- |   |   ├──sqlhandler.go
- |   |   └──exampleRepository.go
  |   ├──response
  |   |   ├──errorResponse.go
  |   |   └──exampleResponse.go
  |   └──router
  |       └──outer.go
+ ├──cmd
+ |   ├──controller
+ |   |   ├──context.go
+ |   |   └──exampleControlle.go
+ |   ├──response
+ |   |   ├──errorResponse.go
+ |   |   └──exampleResponse.go
+ |   └──exampleCommand.go
+ ├──database
+ |   ├──sqlhandler.go
+ |   └──exampleRepository.go
  ├──docker
  |   └──go
  |      └──Dockerfile
