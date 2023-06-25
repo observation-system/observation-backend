@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"fmt"
+	"log"
 	"bytes"
 	"strconv"
 	"strings"
@@ -10,10 +11,11 @@ import (
 	"encoding/json"
 	"net/http"
 
-	//"github.com/observation-system/observation-backend/lib"
+	batchLog "github.com/observation-system/observation-backend/log"
 	"github.com/observation-system/observation-backend/domain"
 	"github.com/observation-system/observation-backend/infrastructure"
 	"github.com/observation-system/observation-backend/cmd/controller"
+	"github.com/observation-system/observation-backend/api/response"
 )
 
 type Spot struct {
@@ -27,13 +29,15 @@ type SpotsResponse struct {
 }
 
 func main() {
+	file := batchLog.GeneratBatchLog()
+	log.SetOutput(file)
+
 	spotController := controller.NewSpotController(infrastructure.NewSqlHandler())
 	dayController := controller.NewDayController(infrastructure.NewSqlHandler())
 
-	// 地点リストを取得
 	data, err := spotController.Spots()
 	if err != nil {
-		panic(err)
+		log.Println(response.NewError(err))
 	}
 	
 	var spotResponse []SpotsResponse
@@ -89,7 +93,7 @@ func callDetectionApi(data domain.Spots) []byte {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		panic(err)
+		log.Println(response.NewError(err))
 	}
 
 	defer resp.Body.Close()
