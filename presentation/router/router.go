@@ -5,7 +5,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 
 	"github.com/observation-system/observation-backend/log"
-	"github.com/observation-system/observation-backend/infrastucture"
+	"github.com/observation-system/observation-backend/infrastructure"
 	"github.com/observation-system/observation-backend/presentation/controller"
 	customMiddleware "github.com/observation-system/observation-backend/presentation/middleware"
 	_ "github.com/observation-system/observation-backend/docs/swagger"
@@ -13,8 +13,8 @@ import (
 )
 
 func Init() *echo.Echo {
-	userController := controller.NewUserController(infrastucture.NewSqlHandler())
-	spotController := controller.NewSpotController(infrastucture.NewSqlHandler())
+	userController := controller.NewUserController(infrastructure.NewSqlHandler())
+	spotController := controller.NewSpotController(infrastructure.NewSqlHandler())
 
 	e := echo.New()
 
