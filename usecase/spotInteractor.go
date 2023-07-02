@@ -26,6 +26,13 @@ func (interactor *SpotInteractor) Spot(spotKey string) (spots domain.Spots, err 
 	return
 }
 
+func (interactor *SpotInteractor) UpdateSpot(spotKey string, spotDomain domain.Spot) (spots domain.Spots, err error) {
+	spots, err = interactor.SpotRepository.UpdateSpot(spotKey, spotDomain)
+
+	return
+}
+
+
 func (interactor *SpotInteractor) UpdateSpotCount(spotKey string, spotCount string) (spots domain.Spots, err error) {
 	spots, err = interactor.SpotRepository.UpdateSpotCount(spotKey, spotCount)
 

@@ -48,6 +48,10 @@ func (controller *SpotController) Spot(spotKey string) (spot domain.Spots, err e
 	return
 }
 
+func (controller *SpotController) UpdateSpot(spotKey string, spotDomain domain.Spot) {
+	controller.Interactor.UpdateSpot(spotKey, spotDomain)
+}
+
 func (controller *SpotController) UpdateSpotCount(spotKey string, spotCount string) {
 	controller.Interactor.UpdateSpotCount(spotKey, spotCount)
 }

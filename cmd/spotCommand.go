@@ -47,8 +47,11 @@ func main() {
 	for i := 0; i < len(spotResponse); i++ {
 		spotKey := spotResponse[i].SpotKey
 		spotsCount := strconv.Itoa(spotResponse[i].Count)
-		spotController.UpdateSpotCount(spotKey, spotsCount)
-		data, _:= spotController.Spot(spotKey)
+		data, err := spotController.Spot(spotKey)
+		if err != nil {
+			log.Println(response.NewError(err))
+		}
+
 		spotsCountDay := data[0].CountDay
 		spotsCountDayArray := strings.Split(spotsCountDay, ",")
 
@@ -63,9 +66,13 @@ func main() {
 		} else {
 			spotsCountDayArray = append(spotsCountDayArray, spotsCount)
 		}
-		
+
+		spotDomain := domain.Spot{}
+		spotDomain.Count = spotsCount
 		spotsCountDayString := strings.Join(spotsCountDayArray, ",")
-		spotController.UpdateSpotCountDay(spotKey, spotsCountDayString)
+		spotDomain.CountDay = spotsCountDayString
+
+		spotController.UpdateSpot(spotKey, spotDomain)
 	}
 }
 

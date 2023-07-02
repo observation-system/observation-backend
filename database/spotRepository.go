@@ -31,6 +31,14 @@ func (repo *SpotRepository) FindBySpotKey(spotKey string) (spots domain.Spots, e
 	return
 }
 
+func (repo *SpotRepository) UpdateSpot(spotKey string, spotDomain domain.Spot) (spots domain.Spots, err error) {
+	if err = repo.Find(&spots).Where("spot_key = ?", spotKey).Update(&spotDomain).Error; err != nil {
+		return
+	}
+
+	return
+}
+
 func (repo *SpotRepository) UpdateSpotCount(spotKey string, spotCount string) (spots domain.Spots, err error) {
 	if err = repo.Find(&spots).Where("spot_key = ?", spotKey).Update("count", spotCount).Error; err != nil {
 		return
