@@ -3,6 +3,28 @@
 ## 構成
 ```
 observation-backend
+ ├──api
+ |   ├──controller
+ |   |   ├──context.go
+ |   |   └──exampleControlle.go
+ |   ├──middleware
+ |   |   └──exampleMiddleware.go
+ |   ├──response
+ |   |   ├──errorResponse.go
+ |   |   └──exampleResponse.go
+ |   └──router
+ |       └──outer.go
+ ├──cmd
+ |   ├──controller
+ |   |   ├──context.go
+ |   |   └──exampleControlle.go
+ |   ├──response
+ |   |   ├──errorResponse.go
+ |   |   └──exampleResponse.go
+ |   └──exampleCommand.go
+ ├──database
+ |   ├──sqlhandler.go
+ |   └──exampleRepository.go
  ├──docker
  |   └──go
  |      └──Dockerfile
@@ -22,18 +44,6 @@ observation-backend
  ├──log
  |   ├──api_debug.log
  |   └──log.go
- ├──presentation
- |   ├──controller
- |   |   ├──context.go
- |   |   └──exampleControlle.go
- |   ├──database
- |   |   ├──sqlhandler.go
- |   |   └──exampleRepository.go
- |   ├──response
- |   |   ├──errorResponse.go
- |   |   └──exampleResponse.go
- |   └──router
- |       └──outer.go
  ├──usecase
  |   ├──exampleInteractor.go
  |   └──exampleRepository.go
