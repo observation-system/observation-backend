@@ -90,8 +90,15 @@ func callDetectionApi(data domain.Spots) []byte {
 	host := os.Getenv("DETECTION_API_HOST")
 	url := fmt.Sprintf("%s/batch_detection", host)
 	headers := map[string]string{"Content-Type": "application/json"}
-	jsonStr, _ := json.Marshal(spots)
-	req, _ := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+	jsonStr, err := json.Marshal(spots)
+	if err != nil {
+		log.Println(response.NewError(err))
+	}
+
+	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+	if err != nil {
+		log.Println(response.NewError(err))
+	}
 
 	for key, value := range headers {
 		req.Header.Set(key, value)
@@ -104,7 +111,10 @@ func callDetectionApi(data domain.Spots) []byte {
 	}
 
 	defer resp.Body.Close()
-	body, _ := ioutil.ReadAll(resp.Body)
-	
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Println(response.NewError(err))
+	}
+
 	return body
 }

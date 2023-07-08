@@ -62,7 +62,7 @@ docker compose up -d --build
 ```
 2.コンテナに入る
 ```
-docker container exec -it observation-backend-app-1 bash
+docker container exec observation-backend-app-1 bash
 ```
 3.マイグレーションの作成(例：usersテーブル)
 ```
